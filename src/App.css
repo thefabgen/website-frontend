@@ -1,0 +1,25 @@
+@font-face {
+ font-family: "Golden-Sans";
+ src: local("Golden-Sans"),
+  url("./fonts/Golden-Sans/GoldenSans-LightDemo.otf") format("truetype");
+ /* font-weight: bold; */
+}
+@font-face {
+ font-family: "Contralto";
+ src: local("Contralto"),
+  url("./fonts/Contralto/Contralto.otf") format("truetype");
+ /* font-weight: bold; */
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  /* padding: 2rem; */
+  text-align: center;
+  /* background-color: black; */
+  font-family: "Golden-Sans"
+}
+
+.header-main{
+  font-family: "Contralto";
+}

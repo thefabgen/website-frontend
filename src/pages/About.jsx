@@ -39,17 +39,16 @@ const About = ({introFinished}) => {
 
   return (
     <div className="w-full relative overflow-hidden bg-black text-white">
-
-        <Link to="/">
-            <h1
-            className={`header-main font-extrabold fixed top-3 left-1/2 -translate-x-1/2 text-3xl md:text-4xl xl:text-5xl z-50
-                ${introFinished ? 'opacity-100 visible' : 'opacity-0 invisible transition-all duration-1500 ease-in-out'}
-                ${activeSection === 'about1' || activeSection === 'about3' ? 'text-white' : 'text-black'}`
-            }
-            >
-            thefabgen
-            </h1>
-        </Link>
+      <Link to="/">
+        <h1
+          className={`header-main font-extrabold fixed top-3 left-1/2 -translate-x-1/2 text-3xl md:text-4xl xl:text-5xl z-50
+            ${introFinished ? 'opacity-100 visible' : 'opacity-0 invisible transition-all duration-1500 ease-in-out'}
+            ${activeSection === 'about1' || activeSection === 'about3' ? 'text-white' : 'text-black'}`
+          }
+        >
+          thefabgen
+        </h1>
+      </Link>
       {/* Section 1 */}
       <div
         className={`w-full h-screen ${activeSection === "about1" ? "fixed" : "relative"} top-0 left-0 z-10`}

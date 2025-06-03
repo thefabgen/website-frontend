@@ -19,7 +19,7 @@ const BlogsPage = ({ introFinished }) => {
         setIsLoading(false);
       }
     }, 500);
-    
+
     return () => clearTimeout(timer);
   }, [blogs]);
 
@@ -27,19 +27,19 @@ const BlogsPage = ({ introFinished }) => {
     <div className="w-full min-h-screen bg-black flex flex-col items-center justify-start relative overflow-x-hidden">
       <Link to="/">
         <h1
-          className={`header-main font-extrabold relative top-3 left-1/2 -translate-x-1/2 text-3xl md:text-4xl z-20 text-white 
+          className={`header-main font-extrabold relative top-3 left-1/2 -translate-x-1/2 text-3xl md:text-4xl z-20 text-white
           transition-all duration-700 ease-in-out
           ${introFinished ? "opacity-100 visible" : "opacity-0 invisible"}`}
         >
           thefabgen
         </h1>
       </Link>
-      
+
       <div className="min-h-screen bg-black w-full">
         {/* Hero Header */}
         <div className="bg-black text-white py-12 md:py-16 px-4">
           <div className="max-w-6xl mx-auto text-center">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -47,7 +47,7 @@ const BlogsPage = ({ introFinished }) => {
             >
               Voices from the Fabs
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -83,15 +83,15 @@ const BlogsPage = ({ introFinished }) => {
               <p className="text-gray-400 max-w-xl mx-auto mb-6">
                 It seems there are no blogs available at the moment. Please check back later.
               </p>
-              <Link 
-                to="/" 
+              <Link
+                to="/"
                 className="inline-block px-6 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-200 transition-colors"
               >
                 Return Home
               </Link>
             </div>
           ) : (
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -104,7 +104,7 @@ const BlogsPage = ({ introFinished }) => {
           )}
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );
@@ -137,7 +137,7 @@ const BlogCard = ({ blog }) => {
               <span className="text-gray-500">No image</span>
             </div>
           )}
-          
+
           {/* Date Badge */}
           <div className="absolute top-4 right-4 bg-black text-white px-3 py-1 rounded-full text-xs md:text-sm">
             {new Date(blog.publishedAt).toLocaleDateString('en-US', {
@@ -150,7 +150,7 @@ const BlogCard = ({ blog }) => {
 
         {/* Content */}
         <div className="p-5 md:p-6">
-          <motion.h3 
+          <motion.h3
             animate={{ color: hover ? '#555' : '#000' }}
             className="text-xl md:text-2xl font-bold mb-3 line-clamp-2"
           >

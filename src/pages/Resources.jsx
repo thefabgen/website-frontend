@@ -1,18 +1,24 @@
+// src/pages/Resources.jsx
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
-
+import BookPopup from "../components/BookPopup";
+import { useState } from "react";
 
 const Resources = ({ introFinished }) => {
-  
+  const [showBookPopup, setShowBookPopup] = useState(false);
+
   return (
     <div className="w-full min-h-screen bg-black flex flex-col items-center justify-start relative overflow-x-hidden">
+      {/* Book Popup */}
+      <BookPopup
+        isOpen={showBookPopup}
+        onClose={() => setShowBookPopup(false)}
+      />
+
       <Link to="/">
         <h1
-          className={`header-main font-extrabold relative top-3 left-1/2 -translate-x-1/2 text-3xl md:text-4xl xl:text-4xl z-20 text-white 
+          className={`header-main font-extrabold relative top-3 left-1/2 -translate-x-1/2 text-3xl md:text-4xl xl:text-4xl z-20 text-white
           transition-all duration-700 ease-in-out
           ${introFinished ? "opacity-100 visible" : "opacity-0 invisible"}`}
         >
@@ -42,14 +48,14 @@ const Resources = ({ introFinished }) => {
           <p className="mb-2">❤️ <strong>The Book:</strong> <em>Fabulous AF: 9 Years of Potential</em></p>
           <p className="ml-6">
             This book explores the Fabs – those born between 1988 and 1997. It features reflections,
-            real stories, and insight from a generation reshaping what’s possible.
+            real stories, and insight from a generation reshaping what's possible.
             <br />
-            <a
-              href="#"
-              className="inline-block mt-1 underline text-[#ffed8f] hover:text-[#e7e1ae] transition-colors duration-300"
+            <button
+              onClick={() => setShowBookPopup(true)}
+              className="cursor-pointer inline-block mt-1 underline text-[#ffed8f] hover:text-[#e7e1ae] transition-colors duration-300"
             >
-              → Purchase the book
-            </a>
+              → Coming soon, Be notified!
+            </button>
           </p>
         </div>
 
@@ -70,20 +76,23 @@ const Resources = ({ introFinished }) => {
         </div>
 
         <div>
-          <p className="mt-6">
-            If you're a Fab featured in this project and want to be listed here, head on over to the{" "}
-            <Link
-              to="/contribute"
-              className="underline text-[#ffed8f] hover:text-[#e7e1ae] transition-colors duration-300"
+          <p className="mb-2">❤️ <strong>Fab Merch</strong></p>
+          <p className="ml-6">
+            Wear the message. Share the movement. Shop limited-edition designs created by and for the Fabulous Generation.
+            <br />
+            <a
+              href="https://www.etsy.com/shop/OneZenStudio?section_id=47792784"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-1 underline text-[#ffed8f] hover:text-[#e7e1ae] transition-colors duration-300"
             >
-              Contribute
-            </Link>{" "}
-            page and complete the form.
+              → Browse Our Merch
+            </a>
           </p>
         </div>
       </motion.div>
 
-      <div className="mt-24 w-full">
+      <div className="mt-10 w-full">
         <Footer />
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { SocialIcon } from 'react-social-icons'
+import { SocialIcon } from 'react-social-icons';
 import Container from './Container';
 import { Link } from 'react-router-dom';
 import { useState } from "react";
@@ -19,35 +19,35 @@ const Footer = () => {
 
   return (
     <footer className="bg-black text-white py-8 w-full ">
-      {status && <Toast message={message} type={status} />} 
+      {status && <Toast message={message} type={status} />}
       <Container>
         <div className="flex flex-col space-y-6">
           {/* Top Section */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-3xl font-bold bg-gradient-to-r from-yellow-200 to-amber-300 bg-clip-text text-transparent">
-              thefabgen
+              <Link to="/" className="hover:text-gray-300 transition-colors">thefabgen</Link>
             </div>
-            
+
             <div className="flex space-x-4">
-              <SocialIcon 
+              <SocialIcon
                 network='youtube'
-                href="https://www.youtube.com/@thefabgen" 
+                href="https://www.youtube.com/@thefabgen"
                 className="!h-8 !w-8 transition hover:opacity-80"
                 target="_blank"
                 rel="noopener noreferrer"
               />
-              <SocialIcon 
+              <SocialIcon
                 network="instagram"
-                href="https://www.instagram.com/thefabgen" 
+                href="https://www.instagram.com/thefabgen"
                 className="!h-8 !w-8 transition hover:opacity-80"
                 target="_blank"
                 rel="noopener noreferrer"
               />
             </div>
           </div>
-          
+
           <div className="h-px w-full bg-gray-600" />
-          
+
           {/* Mailchimp Form */}
           <div className={`max-w-xl mx-auto w-full ${location.pathname == "/contribute" || location.pathname == "/submission"?'hidden':'block'}`}>
             <form onSubmit={handleSubmit} className={`space-y-2`}>
@@ -73,9 +73,9 @@ const Footer = () => {
               </div>
             </form>
           </div>
-          
+
           <div className={`h-px w-full bg-gray-600 ${location.pathname == "/contribute" || location.pathname == "/submission"?'hidden':'block'}`} />
-          
+
           {/* Bottom Section */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-2">
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-base">
@@ -84,9 +84,9 @@ const Footer = () => {
               <Link to="/resources" className="hover:text-gray-300 transition-colors">RESOURCES</Link>
               <Link to="/contribute" className="hover:text-gray-300 transition-colors">CONTRIBUTE</Link>
               <Link to="/blog" className="hover:text-gray-300 transition-colors">BLOG</Link>
-              <Link to="/support" className="hover:text-gray-300 transition-colors">SUPPORT THE MISSION</Link>
+              <Link to="/support" state={{ from: location.pathname }} className="hover:text-gray-300 transition-colors">SUPPORT THE MISSION</Link>
             </div>
-            
+
             <div className="text-sm text-gray-400 mt-2 md:mt-0">
               © {new Date().getFullYear()} thefabgen. All rights reserved.
             </div>

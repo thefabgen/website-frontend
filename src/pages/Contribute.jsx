@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
-import { FiVideo, FiPenTool, FiShare2, FiDollarSign , FiUserCheck } from "react-icons/fi";
+import { Link, useLocation } from "react-router-dom";
+import { FiVideo, FiPenTool, FiShare2, FiDollarSign , FiUserCheck, FiArrowUpRight } from "react-icons/fi";
 import { FcCollaboration } from "react-icons/fc";
 import { useState } from "react";
 import { useMailchimpSubscribe } from "../hooks/useMailChimpSubscribe";
 import Toast from "../components/Toast";
-
 
 const Contribute = ({ introFinished }) => {
   const contributionMethods = [
@@ -15,28 +14,28 @@ const Contribute = ({ introFinished }) => {
       title: "Share Your Voice",
       content: "Write a personal reflection for our blog or upcoming books. It can be what you see about the world, a shift you've experienced, or something meaningful to you.",
       color: "text-purple-400",
-      link: "/submission"  // Added link property
+      link: "/submission"
     },
     {
       icon: <FiVideo />,
       title: "Submit a Video",
       content: "Record a short video (1–3 minutes) sharing something that matters to you—what you're questioning, creating, learning, or becoming.",
       color: "text-blue-400",
-      link: "/submission"  // Added link property
+      link: "/submission"
     },
-    {
-      icon: <FiDollarSign />,
-      title: "Support the Mission",
-      content: "This is an independent project with no outside funding. If you want to help keep it alive and expanding, click here to make a donation.",
-      color: "text-green-400",
-      link: "/support"  // Added link property
+        {
+      icon: <FcCollaboration />,
+      title: "Future Collabs",
+      content: "We're dreaming up workshops and creative collaborations. If you're a Fab working on something aligned—art, tech, science, storytelling—reach out.",
+      color: "text-yellow-400",
+      link: "/submission"
     },
     {
       icon: <FiUserCheck />,
       title: "Mentor Moments",
       content: "Offer a short piece of advice, a lesson learned, or something you wish someone told you earlier. Your words could guide someone else.",
       color: "text-lime-500",
-      link: "/submission"  // Added link property
+      link: "/submission"
     },
     {
       icon: <FiShare2 />,
@@ -49,11 +48,12 @@ const Contribute = ({ introFinished }) => {
       ]
     },
     {
-      icon: <FcCollaboration />,
-      title: "Future Collabs",
-      content: "We're dreaming up workshops and creative collaborations. If you're a Fab working on something aligned—art, tech, science, storytelling—reach out.",
-      color: "text-yellow-400"
-    }
+      icon: <FiDollarSign />,
+      title: "Support the Mission",
+      content: "This is an independent project with no outside funding. If you want to help keep it alive and expanding, click here to make a donation.",
+      color: "text-green-400",
+      link: "/support"
+    },
   ];
     const [email, setEmail] = useState("");
   const { subscribe, status, message } = useMailchimpSubscribe();
@@ -64,11 +64,13 @@ const Contribute = ({ introFinished }) => {
     setEmail("");
   };
 
+  const location=useLocation()
+
   return (
     <div className="w-full min-h-screen bg-black flex flex-col items-center text-white relative overflow-x-hidden">
       <Link to="/" className="group">
         <motion.h1
-          className={`header-main font-extrabold relative top-3 left-1/2 -translate-x-1/2 text-3xl md:text-4xl z-20 text-white 
+          className={`header-main font-extrabold relative top-3 left-1/2 -translate-x-1/2 text-3xl md:text-4xl z-20 text-white
           transition-all duration-700 ease-in-out
           ${introFinished ? "opacity-100 visible" : "opacity-0 invisible"}`}
         >
@@ -97,14 +99,13 @@ const Contribute = ({ introFinished }) => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: index * 0.1, duration: 0.2 }}
-            className={`bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 hover:bg-gray-800/70 
+            className={`bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 hover:bg-gray-800/70
               border border-white group relative ${index < 4 ? 'cursor-pointer' : ''}`}
           >
-            {/* Wrap card content in Link for first 4 cards */}
-            {index < 4 ? (
-              <Link to={method.link} className="absolute inset-0 z-10" aria-label={method.title} />
+            {method.link ? (
+              <Link to={method.link} state={{ from: location.pathname }} className="absolute inset-0 z-10" aria-label={method.title} />
             ) : null}
-            
+
             <div className={`text-4xl mb-4 ${method.color} transition-colors`}>
               {method.icon}
             </div>
@@ -121,7 +122,7 @@ const Contribute = ({ introFinished }) => {
                       rel="noopener noreferrer"
                       className="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors"
                     >
-                      <span className="text-sm">{platform.name}</span>
+                      <span className="text-sm">{platform.name}</span><FiArrowUpRight></FiArrowUpRight>
                     </a>
                   </div>
                 ))}
@@ -155,7 +156,7 @@ const Contribute = ({ introFinished }) => {
           </div>
 
           <div className="hidden lg:block h-64 w-px bg-gray-600 mt-12 mx-4"></div>
-          
+
           <div className="w-full h-px bg-gray-600 my-4 lg:hidden"></div>
 
           {/* Email Subscription Section */}
@@ -165,7 +166,7 @@ const Contribute = ({ introFinished }) => {
                 <Toast message={message} type={status} />
               </div>
             )}
-            
+
             <h2 className="text-3xl md:text-4xl mb-8">Sign up for the latest news</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <label htmlFor="contribute-email" className="block text-center text-lg font-medium text-gray-200">

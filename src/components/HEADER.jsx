@@ -10,7 +10,7 @@ const Header = () => {
     // This effect handles the main header exit animation
     const headerOutTimeout = setTimeout(() => {
       setAnimateHeaderOut(true);
-    }, 1500); // Give a bit more time for the image to scale before the header moves
+    }, 1500);
 
     return () => clearTimeout(headerOutTimeout);
   }, []);
@@ -32,7 +32,7 @@ const Header = () => {
   return (
     <div className="fixed inset-0 w-full h-screen overflow-hidden bg-black z-50">
       <section
-        className={`w-full h-screen flex flex-col items-center justify-center transition-transform duration-3000 ease-in-out bg-black ${
+        className={`w-full h-screen flex flex-col items-center justify-center transition-transform duration-3400 ease-in-out bg-black ${
           animateHeaderOut ? "-translate-y-full" : "translate-y-0"
         }`}
       >

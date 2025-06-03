@@ -11,7 +11,6 @@ export function useMailchimpSubscribe() {
 
     try {
       await fetch(
-        // "https://test.us10.list-manage.com/subscribe/post?u=a64da97ea7d5767a1e6f9818b&id=f5a50b6a3a",
         "https://thefabgen.us4.list-manage.com/subscribe/post?u=ead7fd9c1fb50dfea37c96061&id=3993a95998",
         {
           method: "POST",

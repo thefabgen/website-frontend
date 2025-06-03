@@ -14,7 +14,6 @@ import {
   FiMail,
   FiMessageSquare,
   FiInstagram,
-  FiCheckSquare,
   FiExternalLink
 } from "react-icons/fi";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -80,14 +79,11 @@ const ContentSubmission = () => {
   const subscribeToMailchimp = async (email,strapi="testlink.com") => {
     const formData = new FormData();
     formData.append("EMAIL", email);
-    // formData.append("MMERGE1", strapi);
     formData.append("MMERGE7", strapi);
-    // formData.append("tags","14035488")
     formData.append("tags","4474407")
 
     try {
       await fetch(
-        // "https://test.us10.list-manage.com/subscribe/post?u=a64da97ea7d5767a1e6f9818b&id=f5a50b6a3a&f_id=008e8de3f0",
         "https://thefabgen.us4.list-manage.com/subscribe/post?u=ead7fd9c1fb50dfea37c96061&id=3993a95998&f_id=00076ae3f0",
         {
           method: "POST",
@@ -96,7 +92,7 @@ const ContentSubmission = () => {
         }
       );
     } catch (error) {
-      console.error("Mailchimp subscription error:", error);
+      console.error("Mailchimp subscription error:", error)
     }
   };
 
@@ -131,8 +127,6 @@ const ContentSubmission = () => {
     setIsSubmitting(true);
 
     try {
-      // Add to Mailchimp
-      
       let videoUrl = null;
 
       // Video upload logic if video exists
@@ -177,7 +171,6 @@ const ContentSubmission = () => {
         method: "POST",
         headers: { 
           "Content-Type": "application/json"
-          // "Recaptcha-Token": recaptchaToken
         },
         body: JSON.stringify({ data: contributionData })
       });
@@ -186,7 +179,7 @@ const ContentSubmission = () => {
         throw new Error(errorResult.error?.message || "Submission failed");
       }
       const data = await response.json();
-      console.log(data)
+      // console.log(data) // Removed console.log
       await subscribeToMailchimp(formData.email, `https://growing-egg-699bc403ad.strapiapp.com/admin/content-manager/collection-types/api::contribution.contribution/${data.data.documentId}?status=published`);
 
 
@@ -239,9 +232,9 @@ const ContentSubmission = () => {
           animate={{ opacity: 1, y: 0 }}
           className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 md:p-8 border border-gray-700"
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Share Your Voice</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">Submit Your Contribution</h2>
           <p className="text-gray-400 mb-8">
-            Submit your contribution! You can provide a video, story or both.
+            You can provide a video, story or both.
           </p>
 
           {toast.show && (
@@ -549,7 +542,7 @@ const ContentSubmission = () => {
               <strong>3.</strong> You understand your contribution(s) may be edited for clarity, format, or tone, but your voice and message will be preserved with the utmost care..
             </p>
             <p>
-              <strong>4.</strong> You confirm that your submission is your original work, not created by AI,  and that you have the right to share it.
+              <strong>4.</strong> You confirm that your submission is your original work, not created by AI,   and that you have the right to share it.
             </p>
             
             <p>

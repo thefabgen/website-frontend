@@ -46,7 +46,7 @@ const AboutSky = ({ transitionProgress }) => {
         <p className="text-lg md:text-xl lg:text-2xl 2xl:text-3xl mb-4 leading-relaxed">
           We call them <span className="font-semibold text-[#d8bd38]">The Fabulous Generation</span>.
         </p>
-        <p className="text-lg md:text-xl lg:text-2xl leading-relaxed">
+        <p className="text-lg md:text-xl lg:text-2xl 2xl:text-3xl leading-relaxed">
           This generation carries a different kind of vibe. One wired for connection, creativity, and conscious disruption.
         </p>
       </div>

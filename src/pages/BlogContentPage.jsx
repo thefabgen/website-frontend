@@ -24,7 +24,7 @@ const BlogContent = ({ }) => {
       }
       setLoading(false);
     }, 500);
-    
+
     return () => clearTimeout(timer);
   }, [documentId, blogs]);
 
@@ -46,8 +46,8 @@ const BlogContent = ({ }) => {
         <p className="text-xl text-gray-300 mb-8 text-center">
           The blog you're looking for doesn't exist or may have been removed.
         </p>
-        <Link 
-          to="/blog" 
+        <Link
+          to="/blog"
           className="px-6 py-3 bg-white text-black rounded-full font-medium hover:bg-gray-200 transition-colors"
         >
           Browse All Blogs
@@ -64,17 +64,17 @@ const BlogContent = ({ }) => {
   });
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="min-h-screen bg-black text-white"
     >
-      
+
       {/* Back Button */}
       <div className="max-w-7xl mx-auto px-4 pt-8">
-        <Link 
-          to="/blog" 
+        <Link
+          to="/blog"
           className="inline-flex items-center text-gray-400 hover:text-white transition-colors"
         >
           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -144,11 +144,12 @@ const BlogContent = ({ }) => {
         transition={{ delay: 0.4 }}
         className="max-w-5xl mx-auto px-4 pb-16 text-left"
       >
-        <link 
-          rel="stylesheet" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css" 
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-dark.min.css"
         />
-    <div className="markdown-body p-4 bg-gray-800 rounded-lg">
+    <div className=" markdown-body p-4 bg-gray-800 rounded-lg"
+    style={{ fontFamily: "Golden-Sans", fontSize:"18px" }} >
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw]}

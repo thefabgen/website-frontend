@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 const Hero = ({ transitionProgress }) => {
   const [translateMultiplier, setTranslateMultiplier] = useState(35); // Default for large screens
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
@@ -13,16 +14,15 @@ const Hero = ({ transitionProgress }) => {
       }
     };
     handleResize();
-    // Add event listener for window resize
+
     window.addEventListener('resize', handleResize);
-    // Clean up event listener on component unmount
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []); 
+  }, []);
 
   const scale = 1 - transitionProgress * 0.4;
-  const translateY = -transitionProgress * translateMultiplier; 
+  const translateY = -transitionProgress * translateMultiplier;
 
   return (
     <div className="header-main h-screen overflow-y-scroll scroll-smooth bg-black">

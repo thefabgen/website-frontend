@@ -36,7 +36,7 @@ const AboutFabMama = ({ transitionProgress }) => {
         style={{ transform: `scale(${scale}) translateY(${translateY}em)` }}
       >
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 leading-tight">
-          Behind the Scenes 
+          Behind the Scenes
         </h1>
         <p className="text-lg md:text-xl lg:text-2xl mb-4 leading-relaxed">
           Hi, I’m AnneMarie. I created thefabgen as a platform for The Fabulous Generation (b. 1988–1997).
@@ -48,20 +48,20 @@ const AboutFabMama = ({ transitionProgress }) => {
           thefabgen is here to amplify your voices and remind you that the way you move through the world matters.
         </p>
         <p className="text-lg md:text-xl lg:text-2xl leading-relaxed mt-6">
-            Love,<br />
-            AnneMarie<br />
-            "The Fab Mama"<br />
-            Founder,&nbsp;
-            <Link to="/" className="underline hover:text-[#ece6af] transition-colors duration-200">thefabgen</Link>
-            &nbsp;&amp;&nbsp;
-            <a
+          Love,<br />
+          AnneMarie<br />
+          "The Fab Mama"<br />
+          Founder,&nbsp;
+          <Link to="/" className="underline hover:text-[#ece6af] transition-colors duration-200">thefabgen</Link>
+          &nbsp;&amp;&nbsp;
+          <a
             href="http://hackingsimplicity.com"
             target="_blank"
             rel="noopener noreferrer"
             className="underline hover:text-[#ece6af] transition-colors duration-200"
-            >
+          >
             hackingsimplicity.com
-            </a>
+          </a>
         </p>
       </div>
     </div>
